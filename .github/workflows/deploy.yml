@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - main
+      - test
   pull_request:
     types: [opened, synchronize]
     branches:
@@ -18,7 +19,7 @@ jobs:
         os: [ubuntu-latest] # macos-latest, windows-latest
         node: [16]
         deploy-dir: [.output/public]
-        deploy-user: [sanhvvt]
+        deploy-user: [augusmeow]
         deploy-repo: [sanhvvt.github.io]
 
     runs-on: ${{ matrix.os }}
@@ -58,4 +59,4 @@ jobs:
           build_dir: ${{ matrix.deploy-dir }}
           jekyll: false
         env:
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_GH }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
